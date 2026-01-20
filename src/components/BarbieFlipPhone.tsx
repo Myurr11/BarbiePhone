@@ -157,7 +157,7 @@ const BarbieFlipPhone = () => {
             <img 
               src={barbiePhoneClosed} 
               alt="Barbie Flip Phone" 
-              className="w-64 h-auto drop-shadow-2xl animate-barbie-glow rounded-4  xl"
+              className="w-64 h-auto drop-shadow-2xl animate-barbie-glow rounded-4xl"
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="text-primary-foreground text-lg font-bold bg-primary/80 px-4 py-2 rounded-full animate-pulse shadow-lg">
