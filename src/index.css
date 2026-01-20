@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Barbie Pink palette */
+    --background: 330 100% 97%;
+    --foreground: 330 80% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 330 80% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 330 80% 20%;
+
+    /* Hot Barbie Pink */
+    --primary: 330 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light pink */
+    --secondary: 330 60% 85%;
+    --secondary-foreground: 330 80% 25%;
+
+    --muted: 330 40% 92%;
+    --muted-foreground: 330 30% 45%;
+
+    /* Accent pink */
+    --accent: 330 90% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 330 50% 85%;
+    --input: 330 50% 90%;
+    --ring: 330 100% 50%;
+
+    --radius: 1rem;
+
+    /* Barbie phone specific colors */
+    --phone-body: 330 60% 80%;
+    --phone-body-dark: 330 70% 70%;
+    --phone-inner: 330 100% 50%;
+    --phone-hinge: 330 50% 75%;
+    --phone-screen-bg: 330 30% 95%;
+    --phone-screen-text: 330 100% 50%;
+    --phone-key: 330 100% 50%;
+    --phone-key-text: 0 0% 100%;
+    --phone-key-hover: 330 100% 55%;
+    --phone-call: 330 100% 50%;
+    --phone-end: 330 80% 60%;
+    --phone-nav: 330 20% 90%;
+
+    /* Gradients */
+    --gradient-phone: linear-gradient(145deg, hsl(330 60% 85%), hsl(330 55% 75%));
+    --gradient-inner: linear-gradient(145deg, hsl(330 100% 55%), hsl(330 100% 45%));
+    --gradient-screen: linear-gradient(180deg, hsl(330 30% 96%), hsl(330 25% 92%));
+    --gradient-key: linear-gradient(145deg, hsl(330 100% 55%), hsl(330 100% 45%));
+    --gradient-bg: linear-gradient(180deg, hsl(330 100% 97%) 0%, hsl(330 80% 95%) 50%, hsl(330 60% 92%) 100%);
+
+    /* Shadows */
+    --shadow-phone: 0 30px 80px -20px hsl(330 60% 40% / 0.4), 0 15px 40px -15px hsl(330 40% 30% / 0.3);
+    --shadow-key: 0 3px 0 hsl(330 100% 35%), 0 4px 8px hsl(330 40% 30% / 0.2);
+    --shadow-key-pressed: 0 1px 0 hsl(330 100% 35%), 0 2px 4px hsl(330 40% 30% / 0.1);
+    --shadow-screen: inset 0 2px 10px hsl(330 30% 70% / 0.3);
+    --shadow-nav: 0 2px 0 hsl(330 30% 75%);
+  }
+
+  .dark {
+    --background: 330 40% 8%;
+    --foreground: 330 30% 95%;
+    --card: 330 35% 12%;
+    --card-foreground: 330 30% 95%;
+    --popover: 330 35% 12%;
+    --popover-foreground: 330 30% 95%;
+    --primary: 330 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 330 50% 25%;
+    --secondary-foreground: 330 30% 95%;
+    --muted: 330 30% 18%;
+    --muted-foreground: 330 20% 60%;
+    --accent: 330 90% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 330 30% 25%;
+    --input: 330 30% 25%;
+    --ring: 330 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-quicksand;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .font-barbie {
+    font-family: 'Pacifico', cursive;
+  }
+
+  .font-quicksand {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  .phone-shadow {
+    box-shadow: var(--shadow-phone);
+  }
+
+  .key-shadow {
+    box-shadow: var(--shadow-key);
+  }
+
+  .key-shadow-pressed {
+    box-shadow: var(--shadow-key-pressed);
+  }
+
+  .screen-shadow {
+    box-shadow: var(--shadow-screen);
+  }
+
+  .nav-shadow {
+    box-shadow: var(--shadow-nav);
+  }
+
+  .phone-gradient {
+    background: var(--gradient-phone);
+  }
+
+  .inner-gradient {
+    background: var(--gradient-inner);
+  }
+
+  .screen-gradient {
+    background: var(--gradient-screen);
+  }
+
+  .key-gradient {
+    background: var(--gradient-key);
+  }
+
+  /* Hearts pattern for keys */
+  .hearts-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 6c-1.5-2-4-2-5 0s0 4 5 7c5-3 6-5 5-7s-3.5-2-5 0z' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
+  }
+
+  /* Flip animation - realistic hinge at top of bottom half */
+  .flip-lid-closed {
+    transform: perspective(1200px) rotateX(0deg);
+    transform-origin: bottom center;
+  }
+
+  .flip-lid-open {
+    transform: perspective(1200px) rotateX(-170deg);
+    transform-origin: bottom center;
+  }
+
+  /* Sparkle animation */
+  @keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  /* Float animation for closed phone */
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Pulse glow for Barbie */
+  @keyframes barbie-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(330 100% 50% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(330 100% 50% / 0.6); }
+  }
+
+  .animate-barbie-glow {
+    animation: barbie-glow 2s ease-in-out infinite;
+  }
+
+  /* Playing visualizer */
+  @keyframes visualizer {
+    0%, 100% { height: 4px; }
+    50% { height: 20px; }
+  }
+
+  .animate-visualizer {
+    animation: visualizer 0.4s ease-in-out infinite;
+  }
+}
